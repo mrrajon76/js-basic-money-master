@@ -37,6 +37,7 @@ function updateValue(fieldId, amount) {
     return;
 }
 
+// Calculate income and expenese
 document.getElementById('calculate').addEventListener('click', function () {
     const incomeAmount = getInputValue('incomeValue');
     const foodExpense = getInputValue('foodExpense');
@@ -47,5 +48,16 @@ document.getElementById('calculate').addEventListener('click', function () {
     updateValue('totalExpenses', totalExpenseAmount);
     const balance = incomeAmount - totalExpenseAmount;
     updateValue('balanceAmount', balance);
-    console.log(totalExpense)
+    // console.log(totalExpense)
+});
+
+// Calculate savings and remaining balance
+document.getElementById('saveCalculate').addEventListener('click', function () {
+    const saveValue = getInputValue('saveValue');
+    const balanceText = document.getElementById('balanceAmount').innerText;
+    const balance = parseFloat(balanceText);
+    const calculateSaving = balance / saveValue;
+    updateValue('savingAmount', calculateSaving);
+    const remainingAmount = balance - calculateSaving;
+    updateValue('remainingBalance', remainingAmount);
 });
