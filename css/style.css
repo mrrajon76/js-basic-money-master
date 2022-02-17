@@ -8,3 +8,8 @@ body {
 .brand {
   color: #ffb400;
 }
+.btn-brand {
+  background-color: #ffb400;
+  color: #fff;
+  padding: 8px 30px;
+}

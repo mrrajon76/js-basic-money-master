@@ -17,7 +17,7 @@
 <body>
     <!-- Header section -->
     <header>
-        <section class="container pt-5 pb-3">
+        <section class="container pt-5 pb-4">
             <div class="row">
                 <div class="col text-center">
                     <h1 class="fw-bold">Private <span class="brand">Money</span> Calculator</h1>
@@ -27,7 +27,96 @@
     </header>
 
     <!-- Main body section -->
-    <main></main>
+    <main>
+        <section class="container">
+            <div class="row gx-5">
+
+                <!-- banner section -->
+                <div class="col-lg-6">
+                    <img src="images/money-calculator-banner.jpg" alt="banner" class="img-fluid">
+                </div>
+
+                <!-- input and calculation section -->
+                <div class="col-lg-6 bg-light p-5">
+
+                    <!-- Income section -->
+                    <div class="income">
+                        <h4 class="text-center brand fw-bolder">Income</h4>
+                        <div class="row mt-3 d-flex align-items-center">
+                            <div class="col-lg-2">
+                                Income:
+                            </div>
+                            <div class="col-lg-10">
+                                <input type="text" name="" id="" class="form-control bg-white" placeholder="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expenses section -->
+                    <div class="expenses mt-5">
+                        <h4 class="text-center brand fw-bolder">Expenses</h4>
+                        <div class="row mt-3 d-flex align-items-center">
+                            <div class="col-lg-2">
+                                Food:
+                            </div>
+                            <div class="col-lg-10">
+                                <input type="text" name="" id="" class="form-control bg-white" placeholder="0">
+                            </div>
+                        </div>
+                        <div class="row mt-3 d-flex align-items-center">
+                            <div class="col-lg-2">
+                                Rent:
+                            </div>
+                            <div class="col-lg-10">
+                                <input type="text" name="" id="" class="form-control bg-white" placeholder="0">
+                            </div>
+                        </div>
+                        <div class="row mt-3 d-flex align-items-center">
+                            <div class="col-lg-2">
+                                Clothes:
+                            </div>
+                            <div class="col-lg-10">
+                                <input type="text" name="" id="" class="form-control bg-white" placeholder="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculate button -->
+                    <div class="d-flex justify-content-center mt-5">
+                        <button type="button" class="btn btn-brand">Calculate</button>
+                    </div>
+
+                    <!-- Total expense and balance -->
+                    <div class="row mt-4 text-center">
+                        <h4><span class="brand">Total Expenses:</span> 0</h4>
+                        <h3><span class="fw-bolder brand">Balance:</span> 0</h3>
+                    </div>
+
+                    <!-- Savings section -->
+                    <div class="row mt-5 d-flex align-items-center">
+                        <div class="col-lg-2">
+                            Save:
+                        </div>
+                        <div class="col-lg-5">
+                            <input type="text" name="" id="" class="form-control bg-white" placeholder="0">
+                        </div>
+                        <div class="col-lg-1">
+                            %
+                        </div>
+                        <div class="col-lg-4">
+                            <button type="button" class="btn btn-brand">Save</button>
+                        </div>
+                    </div>
+
+                    <!-- Saving and remaining balance -->
+                    <div class="row mt-4 text-center">
+                        <h4><span class="brand">Saving Amount:</span> 0</h4>
+                        <h3><span class="fw-bolder brand">Remaining Balance:</span> 0</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer section -->
     <footer></footer>
