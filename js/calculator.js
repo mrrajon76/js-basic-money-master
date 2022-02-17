@@ -30,7 +30,14 @@ function validInput(value) {
     }
 }
 
-// Function for updating values
+// Function for getting text value{
+function getValue(fieldId) {
+    const getField = document.getElementById(fieldId);
+    const fieldValue = getField.innerText;
+    return parseFloat(fieldValue);
+}
+
+// Function for updating text value
 function updateValue(fieldId, amount) {
     const getField = document.getElementById(fieldId);
     getField.innerText = amount;
@@ -43,21 +50,45 @@ document.getElementById('calculate').addEventListener('click', function () {
     const foodExpense = getInputValue('foodExpense');
     const rentExpense = getInputValue('rentExpense');
     const clothesExpense = getInputValue('clothesExpense');
-    const totalExpenseAmount = foodExpense + rentExpense + clothesExpense;
 
-    updateValue('totalExpenses', totalExpenseAmount);
+    // calculte total expeneses
+    const totalExpenseAmount = foodExpense + rentExpense + clothesExpense;
+    // calculate balace after total expeneses
     const balance = incomeAmount - totalExpenseAmount;
-    updateValue('balanceAmount', balance);
-    // console.log(totalExpense)
+
+    // check the expenses are lower than or equal to balance or not
+    if (totalExpenseAmount > incomeAmount) {
+        window.alert("Expenses must be lower or equal to income!")
+    }
+    // check all the inputs are valid or not and update total expeneses & balance
+    else if (incomeAmount != undefined && foodExpense != undefined && rentExpense != undefined && clothesExpense != undefined) {
+        updateValue('totalExpenses', totalExpenseAmount);
+        updateValue('balanceAmount', balance);
+    }
 });
 
 // Calculate savings and remaining balance
 document.getElementById('saveCalculate').addEventListener('click', function () {
     const saveValue = getInputValue('saveValue');
-    const balanceText = document.getElementById('balanceAmount').innerText;
-    const balance = parseFloat(balanceText);
-    const calculateSaving = balance / saveValue;
-    updateValue('savingAmount', calculateSaving);
+    const balance = getValue('balanceAmount');
+    const expeneses = getValue('totalExpenses');
+    const incomeAmount = getInputValue('incomeValue');
+
+    // calculate saving amount
+    const calculateSaving = incomeAmount * (saveValue / 100);
     const remainingAmount = balance - calculateSaving;
-    updateValue('remainingBalance', remainingAmount);
+
+    // check balance amount is updated by calculating expenses or not
+    if (expeneses == 0 && balance == 0) {
+        window.alert("Please enter your income and expenses first!");
+    }
+    // check saving amount is lowar than or equal to balance or not
+    else if (calculateSaving > balance) {
+        window.alert("You have not enough balance to save!");
+    }
+    // check income amount & saving percentag are defined or not and updating the value of savings & remaining balance
+    else if (incomeAmount != undefined && saveValue != undefined) {
+        updateValue('savingAmount', calculateSaving);
+        updateValue('remainingBalance', remainingAmount);
+    }
 });
