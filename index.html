@@ -47,7 +47,16 @@
                                 Income:
                             </div>
                             <div class="col-md-10">
-                                <input type="text" name="" id="" class="form-control bg-white" placeholder="0">
+                                <input type="text" name="" id="incomeValue" class="form-control bg-white"
+                                    placeholder="0">
+                            </div>
+                        </div>
+                        <!-- Income value error message -->
+                        <div class="row mt-1 d-flex align-items-center">
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-10">
+                                <p id="incomeValueErrorMsg" class="error">Invalid amount!</p>
                             </div>
                         </div>
                     </div>
@@ -55,41 +64,74 @@
                     <!-- Expenses section -->
                     <div class="expenses mt-5">
                         <h4 class="text-center brand fw-bolder">Expenses</h4>
+
+                        <!-- Food expense -->
                         <div class="row mt-3 d-flex align-items-center">
                             <div class="col-md-2">
                                 Food:
                             </div>
                             <div class="col-md-10">
-                                <input type="text" name="" id="" class="form-control bg-white" placeholder="0">
+                                <input type="text" name="" id="foodExpense" class="form-control bg-white"
+                                    placeholder="0">
                             </div>
                         </div>
+                        <!-- Food expense error message -->
+                        <div class="row mt-1 d-flex align-items-center">
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-10">
+                                <p id="foodExpenseErrorMsg" class="error">Invalid amount!</p>
+                            </div>
+                        </div>
+
+                        <!-- Rent expense -->
                         <div class="row mt-3 d-flex align-items-center">
                             <div class="col-md-2">
                                 Rent:
                             </div>
                             <div class="col-md-10">
-                                <input type="text" name="" id="" class="form-control bg-white" placeholder="0">
+                                <input type="text" name="" id="rentExpense" class="form-control bg-white"
+                                    placeholder="0">
                             </div>
                         </div>
+                        <!-- Rent expense error message -->
+                        <div class="row mt-1 d-flex align-items-center">
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-10">
+                                <p id="rentExpenseErrorMsg" class="error">Invalid amount!</p>
+                            </div>
+                        </div>
+
+                        <!-- Clothes expense -->
                         <div class="row mt-3 d-flex align-items-center">
                             <div class="col-md-2">
                                 Clothes:
                             </div>
                             <div class="col-md-10">
-                                <input type="text" name="" id="" class="form-control bg-white" placeholder="0">
+                                <input type="text" name="" id="clothesExpense" class="form-control bg-white"
+                                    placeholder="0">
+                            </div>
+                        </div>
+                        <!-- Clothes expense error message -->
+                        <div class="row mt-1 d-flex align-items-center">
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-10">
+                                <p id="clothesExpenseErrorMsg" class="error">Invalid amount!</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Calculate button -->
                     <div class="d-flex justify-content-center mt-5">
-                        <button type="button" class="btn btn-brand">Calculate</button>
+                        <button id="calculate" type="button" class="btn btn-brand">Calculate</button>
                     </div>
 
                     <!-- Total expense and balance -->
                     <div class="row mt-4 text-center">
-                        <h4><span class="brand">Total Expenses:</span> 0</h4>
-                        <h3><span class="fw-bolder brand">Balance:</span> 0</h3>
+                        <h4><span class="brand">Total Expenses:</span> <span id="totalExpenses">0</span></h4>
+                        <h3><span class="fw-bolder brand">Balance:</span> <span id="balanceAmount">0</span></h3>
                     </div>
 
                     <!-- Savings section -->
@@ -98,20 +140,21 @@
                             Save:
                         </div>
                         <div class="col-5">
-                            <input type="text" name="" id="" class="form-control bg-white" placeholder="0">
+                            <input type="text" name="" id="saveValue" class="form-control bg-white" placeholder="0">
                         </div>
                         <div class="col-1">
                             %
                         </div>
                         <div class="col-4">
-                            <button type="button" class="btn btn-brand">Save</button>
+                            <button id="saveCalculate" type="button" class="btn btn-brand">Save</button>
                         </div>
                     </div>
 
                     <!-- Saving and remaining balance -->
                     <div class="row mt-4 text-center">
-                        <h4><span class="brand">Saving Amount:</span> 0</h4>
-                        <h3><span class="fw-bolder brand">Remaining Balance:</span> 0</h3>
+                        <h4><span class="brand">Saving Amount:</span> <span id="savingAmount">0</span></h4>
+                        <h3><span class="fw-bolder brand">Remaining Balance:</span> <span id="remainingBalance">0</span>
+                        </h3>
                     </div>
                 </div>
             </div>

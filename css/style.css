@@ -13,3 +13,7 @@ body {
   color: #fff;
   padding: 8px 30px;
 }
+.error {
+  color: red;
+  display: none;
+}
