@@ -3,30 +3,16 @@ function getInputValue(inputId) {
     const inputField = document.getElementById(inputId);
     const inputText = inputField.value;
     const inputValue = parseFloat(inputText);
-    // input value validation
-    if (validInput(inputValue)) {
+
+    // input value is inavlid error message
+    if (isNaN(inputValue) == true || inputValue < 0) {
+        document.getElementById(inputId + 'ErrorMsg').style.display = "block";
+        return;
+    }
+    // input value is valid
+    else {
         document.getElementById(inputId + 'ErrorMsg').style.display = "none";
         return inputValue;
-    }
-    // input value is inavlid error message
-    else {
-        document.getElementById(inputId + 'ErrorMsg').style.display = "block";
-    }
-}
-
-// Function for checking the input value is valid or not
-function validInput(value) {
-    // not a number
-    if (isNaN(value)) {
-        return false;
-    }
-    // negative value
-    else if (value < 0) {
-        return false;
-    }
-    // valid value
-    else {
-        return true;
     }
 }
 
@@ -56,6 +42,10 @@ document.getElementById('calculate').addEventListener('click', function () {
     // calculate balace after total expeneses
     const balance = incomeAmount - totalExpenseAmount;
 
+    // make total expeneses and balance are zero as a default value
+    updateValue('totalExpenses', 0);
+    updateValue('balanceAmount', 0);
+
     // check the expenses are lower than or equal to balance or not
     if (totalExpenseAmount > incomeAmount) {
         window.alert("Expenses must be lower or equal to income!")
@@ -78,15 +68,19 @@ document.getElementById('saveCalculate').addEventListener('click', function () {
     const calculateSaving = incomeAmount * (saveValue / 100);
     const remainingAmount = balance - calculateSaving;
 
+    // make saving amount and remaining balance are zero as a default value
+    updateValue('savingAmount', 0);
+    updateValue('remainingBalance', 0);
+
     // check balance amount is updated by calculating expenses or not
-    if (expeneses == 0 && balance == 0) {
+    if ((expeneses == 0 && balance == 0) || (incomeAmount == undefined)) {
         window.alert("Please enter your income and expenses first!");
     }
     // check saving amount is lowar than or equal to balance or not
     else if (calculateSaving > balance) {
-        window.alert("You have not enough balance to save!");
+        window.alert("You have no enough balance to save!");
     }
-    // check income amount & saving percentag are defined or not and updating the value of savings & remaining balance
+    // check income amount & saving percentag are defined or not and update the value of savings & remaining balance
     else if (incomeAmount != undefined && saveValue != undefined) {
         updateValue('savingAmount', calculateSaving);
         updateValue('remainingBalance', remainingAmount);
